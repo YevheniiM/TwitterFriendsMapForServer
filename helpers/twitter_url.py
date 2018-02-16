@@ -1,5 +1,5 @@
-import oauth
-import tokens
+from helpers import oauth
+from data import tokens
 
 
 def augment(url, parameters):

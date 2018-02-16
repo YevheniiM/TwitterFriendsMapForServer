@@ -1,5 +1,6 @@
+from helpers import twitter_friends_request
+
 from flask import Flask, render_template, request
-import main
 
 app = Flask(__name__, template_folder='templates')
 
@@ -13,7 +14,7 @@ def index():
 def register():
     name = request.form['name']
     count = request.form['count']
-    main.test_set_friends(name, count)
+    twitter_friends_request.test_set_friends(name, count)
     return render_template('FriendsMap.html')
 
 

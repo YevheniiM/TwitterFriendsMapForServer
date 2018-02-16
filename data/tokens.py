@@ -1,3 +1,7 @@
+TWITTER_URL = 'https://api.twitter.com/1.1/friends/list.json'
+API_KEY = "AIzaSyAgddL1nFKDhUNuiEAPFNUD-kNktOratbU"
+
+
 def auth():
     return {
         "consumer_key": "Aj5UJ2bxhDcT4HYwUiVGvM3iH",
