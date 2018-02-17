@@ -1,5 +1,4 @@
 from helpers import twitter_friends_request
-
 from flask import Flask, render_template, request
 
 app = Flask(__name__, template_folder='templates')
