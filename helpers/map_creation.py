@@ -1,6 +1,11 @@
+"""map_creation.py
+
+The module provides functions to create map of friends
+
+"""
+
 import folium
 import requests
-
 from data.tokens import API_KEY
 
 
@@ -44,7 +49,7 @@ def add_friends_layer(my_map, friends):
         fg.add_child(
             folium.Marker(
                 location=[coordinates[0], coordinates[1]],
-                popup=str(friend['name']) + my_icon,
+                popup=str(friend['name']),
                 icon=my_icon
             )
         )
@@ -60,8 +65,6 @@ def create_map(friends):
 
     """
     _map = folium.Map()
-
     add_friends_layer(_map, friends)
-
     _map.add_child(folium.LayerControl())
-    _map.save("templates/FriendsMap.html")
+    _map.save("static/FriendsMap.html")

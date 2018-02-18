@@ -1,3 +1,10 @@
+"""twitter_friends_request.py
+
+The module provides functions to work with
+data, which twitter's API returns
+
+"""
+
 import ssl
 import urllib
 import json
@@ -18,6 +25,11 @@ def ignore_errors():
 
 
 def create_friends_list(json_file):
+    """Creates the list of friends with some data
+
+    (dict) -> (list[dict])
+
+    """
     friends = list()
     for user in json_file['users']:
         temp = dict()
@@ -30,16 +42,23 @@ def create_friends_list(json_file):
 
 
 def request_remaining(headers):
+    """The function returns the number of remaining requests
+
+    (dict) -> (str)
+
+    """
     return headers['x-rate-limit-remaining']
 
 
-def test_set_friends(user_account, count_of_friends):
+def show_friends_on_the_map(user_account, count_of_friends):
+    """The function shows user's friends on the map
 
+    (string, string) -> (None)
+
+    """
     url = twitter_url.get_friends_url(TWITTER_URL, user_account, count_of_friends)
-
     connection = urllib.request.urlopen(url, context=ignore_errors())
     data = connection.read().decode()
-
     js = json.loads(data)
 
     print('Remaining:', request_remaining(dict(connection.getheaders())))

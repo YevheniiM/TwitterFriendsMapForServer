@@ -1,8 +1,18 @@
+"""twitter_url.py
+
+The module provides functions to access twitter API
+
+"""
+
 from helpers import oauth
 from data import tokens
 
 
 def augment(url, parameters):
+    """The function generates appropriate url
+    to access twitter's API
+
+    """
     consumer_information = tokens.auth()
     consumer = oauth.OAuthConsumer(
         consumer_information['consumer_key'],
@@ -30,6 +40,9 @@ def augment(url, parameters):
 
 
 def get_friends_url(twitter_url, name, count):
+    """The function helps to form the url in easiest way
+
+    """
     return augment(
         twitter_url,
         {
